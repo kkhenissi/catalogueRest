@@ -1,7 +1,6 @@
-package entities;
+package org.sid.catalogueRest.entities;
 
 import lombok.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.annotation.Id;
 
 @Data @AllArgsConstructor @NoArgsConstructor @ToString @Getter @Setter @EqualsAndHashCode

@@ -1,23 +1,26 @@
-package controllers;
+package org.sid.catalogueRest.controllers;
 
-import entities.Produit;
+import org.sid.catalogueRest.entities.Produit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import services.IProduitService;
+import org.sid.catalogueRest.services.IProduitService;
+import org.sid.catalogueRest.services.ProduitMockServiceImpl;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/produit")
+@CrossOrigin
 public class ProduitController {
 
     @Autowired
     private IProduitService produitService;
+    @Autowired
+    private ProduitMockServiceImpl produitMockService;
 
     @GetMapping
     public List<Produit> getProduits() {
         return  produitService.getProduits();
-
     }
 
     @PostMapping

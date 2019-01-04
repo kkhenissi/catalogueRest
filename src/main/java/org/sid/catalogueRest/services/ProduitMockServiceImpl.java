@@ -1,6 +1,6 @@
-package services;
+package org.sid.catalogueRest.services;
 
-import entities.Produit;
+import org.sid.catalogueRest.entities.Produit;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,6 +24,12 @@ public class ProduitMockServiceImpl implements IProduitService {
         produits.add(new Produit("LXXXXXX", 622, 250));
         produits.add(new Produit("LDDDDDD", 422, 275));
         produits.add(new Produit("LZZZZZZ", 612, 650));
+
+
+        produits.forEach(p -> {
+           System.out.println("Produit: " + p);
+        });
+
     }
 
 
@@ -31,7 +37,7 @@ public class ProduitMockServiceImpl implements IProduitService {
 
     @Override
     public List<Produit> getProduits() {
-        return null;
+        return produits;
     }
 
     @Override

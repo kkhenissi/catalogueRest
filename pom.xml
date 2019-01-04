@@ -28,6 +28,14 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.atlassian.plugins.rest/atlassian-rest-common -->
+		<dependency>
+			<groupId>com.atlassian.plugins.rest</groupId>
+			<artifactId>atlassian-rest-common</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -38,11 +46,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.2.8.Final</version>
-		</dependency>
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>

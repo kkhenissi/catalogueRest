@@ -1,6 +1,6 @@
-package services;
+package org.sid.catalogueRest.services;
 
-import entities.Produit;
+import org.sid.catalogueRest.entities.Produit;
 
 import java.util.List;
 
