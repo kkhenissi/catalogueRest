@@ -16,18 +16,7 @@ public class ProduitMockServiceImpl implements IProduitService {
     public ProduitMockServiceImpl() {
         produits = new ArrayList<Produit>();
 
-        produits.add(new Produit("Livre", 512, 250));
-        produits.add(new Produit("Cahier", 312, 215));
-        produits.add(new Produit("Stylo", 342, 12));
-        produits.add(new Produit("Valise", 52, 1550));
-        produits.add(new Produit("Ram papier", 112, 125));
-        produits.add(new Produit("LXXXXXX", 622, 250));
-        produits.add(new Produit("LDDDDDD", 422, 275));
-        produits.add(new Produit("LZZZZZZ", 612, 650));
-
-
         produits.forEach(p -> {
-           System.out.println("Produit: " + p);
         });
 
     }
@@ -54,9 +43,11 @@ public class ProduitMockServiceImpl implements IProduitService {
     }
 
     @Override
-    public void deleteProduit(String ref) {
+    public void deleteProduit(Long id) {
+        System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmm>"+ id);
         Produit produit = new Produit();
-        produit.setRef(ref);
+        produit.setId(id);
+        System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyy>"+ produit.getRef());
         produits.remove(produit);
 
 
