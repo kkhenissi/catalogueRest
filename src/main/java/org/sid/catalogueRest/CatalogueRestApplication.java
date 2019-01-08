@@ -19,14 +19,14 @@ public class CatalogueRestApplication {
 
 		ProduitRepository produitRepository = ((ConfigurableApplicationContext) ctx).getBean(ProduitRepository.class);
 
-		produitRepository.save(new Produit(1L,"Livre", 512, 250));
-		produitRepository.save(new Produit(2L,"Cahier", 312, 215));
-		produitRepository.save(new Produit(3L,"Stylo", 342, 12));
-		produitRepository.save(new Produit(4L,"Valise", 52, 1550));
-		produitRepository.save(new Produit(5L,"Ram papier", 112, 125));
-		produitRepository.save(new Produit(6L,"LXXXXXX", 622, 250));
-		produitRepository.save(new Produit(7L,"LDDDDDD", 422, 275));
-		produitRepository.save(new Produit(8L,"LZZZZZZ", 612, 650));
+//		produitRepository.save(new Produit(1L,"Livre", 512, 250));
+//		produitRepository.save(new Produit(2L,"Cahier", 312, 215));
+//		produitRepository.save(new Produit(3L,"Stylo", 342, 12));
+//		produitRepository.save(new Produit(4L,"Valise", 52, 1550));
+//		produitRepository.save(new Produit(5L,"Ram papier", 112, 125));
+//		produitRepository.save(new Produit(6L,"LXXXXXX", 622, 250));
+//		produitRepository.save(new Produit(7L,"LDDDDDD", 422, 275));
+//		produitRepository.save(new Produit(8L,"LZZZZZZ", 612, 650));
 
 
 	}
