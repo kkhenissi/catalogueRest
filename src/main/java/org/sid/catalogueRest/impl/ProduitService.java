@@ -1,7 +1,8 @@
-package org.sid.catalogueRest.services;
+package org.sid.catalogueRest.impl;
 
 import org.sid.catalogueRest.dao.ProduitRepository;
 import org.sid.catalogueRest.entities.Produit;
+import org.sid.catalogueRest.services.ICrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;

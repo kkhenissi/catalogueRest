@@ -56,7 +56,8 @@ public class CatalogueRestApplication {
 
 
 		User  admin = new User("admin", "admin", true);
-		admin.setRoles(Arrays.asList(roleAdmin));
+		admin.setRoles(Arrays.asList(roleAdmin, roleUser));
+		//admin.setRoles(Arrays.asList(roleUser));
 		userRepository.save(admin);
 
 	}
