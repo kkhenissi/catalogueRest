@@ -3,8 +3,8 @@ package org.sid.catalogueRest.controllers;
 import org.sid.catalogueRest.entities.Produit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.sid.catalogueRest.services.IProduitService;
-import org.sid.catalogueRest.services.ProduitMockServiceImpl;
+import org.sid.catalogueRest.services.ICrudService;
+import org.sid.catalogueRest.services.CrudMockServiceImpl;
 
 import java.util.List;
 
@@ -13,28 +13,28 @@ import java.util.List;
 public class ProduitController {
 
     @Autowired
-    private IProduitService produitService;
+    private ICrudService<Produit, Long> produitService;
     @Autowired
-    private ProduitMockServiceImpl produitMockService;
+    private CrudMockServiceImpl produitMockService;
 
     @GetMapping
-    public List<Produit> getProduits() {
-        return  produitService.getProduits();
+    public List<Produit> getALL() {
+        return  produitService.getaLL();
     }
 
     @PostMapping
-    public void addProduit(@RequestBody  Produit produit) {
-        produitService.addProduit(produit);
+    public void add(@RequestBody  Produit produit) {
+        produitService.add(produit);
     }
 
     @PutMapping
-    public void updateProduit(@RequestBody Produit produit) {
-        produitService.updateProduit(produit);
+    public void update(@RequestBody Produit produit) {
+        produitService.update(produit);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteProduit(@PathVariable  Long id) {
-        produitService.deleteProduit(id);
+    public void delete(@PathVariable  Long id) {
+        produitService.delete(id);
     }
 
 }

@@ -4,6 +4,7 @@ import org.sid.catalogueRest.dao.ProduitRepository;
 import org.sid.catalogueRest.dao.RoleRepository;
 import org.sid.catalogueRest.dao.UserRepository;
 import org.sid.catalogueRest.entities.Produit;
+import org.sid.catalogueRest.util.RoleEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.CommandLineRunner;
@@ -26,21 +27,21 @@ public class CatalogueRestApplication {
 
 		ProduitRepository produitRepository = ((ConfigurableApplicationContext) ctx).getBean(ProduitRepository.class);
 
-//		produitRepository.save(new Produit(1L,"Livre", 512, 250));
-//		produitRepository.save(new Produit(2L,"Cahier", 312, 215));
-//		produitRepository.save(new Produit(3L,"Stylo", 342, 12));
-//		produitRepository.save(new Produit(4L,"Valise", 52, 1550));
-//		produitRepository.save(new Produit(5L,"Ram papier", 112, 125));
-//		produitRepository.save(new Produit(6L,"LXXXXXX", 622, 250));
-//		produitRepository.save(new Produit(7L,"LDDDDDD", 422, 275));
-//		produitRepository.save(new Produit(8L,"LZZZZZZ", 612, 650));
+		produitRepository.save(new Produit(1L,"Livre", 512, 250));
+		produitRepository.save(new Produit(2L,"Cahier", 312, 215));
+		produitRepository.save(new Produit(3L,"Stylo", 342, 12));
+		produitRepository.save(new Produit(4L,"Valise", 52, 1550));
+		produitRepository.save(new Produit(5L,"Ram papier", 112, 125));
+		produitRepository.save(new Produit(6L,"LXXXXXX", 622, 250));
+		produitRepository.save(new Produit(7L,"LDDDDDD", 422, 275));
+		produitRepository.save(new Produit(8L,"LZZZZZZ", 612, 650));
 
 		RoleRepository roleRepository = ctx.getBean(RoleRepository.class);
 
-        Role roleUser = new Role("ROLE_USER");
+        Role roleUser = new Role(RoleEnum.ROLE_USER);
 
       //  roleUser.setName("ROLE_USER");
-		Role roleAdmin = new Role("ROLE_ADMIN");
+		Role roleAdmin = new Role(RoleEnum.ROLE_ADMIN);
 
 	  //	roleAdmin.setName("ROLE_ADMIN");
 		roleRepository.save(roleUser);

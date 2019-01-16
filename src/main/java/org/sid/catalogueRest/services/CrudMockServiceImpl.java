@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 @Service
-public class ProduitMockServiceImpl implements IProduitService {
+public class CrudMockServiceImpl implements ICrudService<Produit , Long> {
 
     private List<Produit> produits;
 
 
 
 
-    public ProduitMockServiceImpl() {
+    public CrudMockServiceImpl() {
         produits = new ArrayList<Produit>();
 
         produits.forEach(p -> {
@@ -24,32 +24,34 @@ public class ProduitMockServiceImpl implements IProduitService {
 
 
 
+
     @Override
-    public List<Produit> getProduits() {
-        return produits;
+    public List<Produit> getaLL() {
+        return null;
     }
 
     @Override
-    public void addProduit(Produit produit) {
+    public void add(Produit produit) {
         produits.add(produit);
 
     }
 
     @Override
-    public void updateProduit(Produit produit) {
+    public void update(Produit produit) {
         produits.remove(produit);
         produits.add(produit);
 
     }
 
     @Override
-    public void deleteProduit(Long id) {
+    public void delete(Long id) {
         System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmm>"+ id);
         Produit produit = new Produit();
         produit.setId(id);
         System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyy>"+ produit.getRef());
         produits.remove(produit);
 
-
     }
+
+
 }

@@ -9,33 +9,35 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 @Primary
-public class ProduitService implements  IProduitService{
+public class ProduitService implements ICrudService<Produit, Long> {
 
     @Autowired
 
     private ProduitRepository produitRepository;
+
     @Override
-    public List<Produit> getProduits() {
+    public List<Produit> getaLL() {
         return this.produitRepository.findAll();
     }
 
     @Override
-    public void addProduit(Produit produit) {
-        this.produitRepository.save(produit);
+    public void add(Produit entity) {
+        this.produitRepository.save(entity);
 
     }
 
     @Override
-    public void updateProduit(Produit produit) {
-        this.produitRepository.saveAndFlush(produit);
+    public void update(Produit entity) {
+        this.produitRepository.saveAndFlush(entity);
 
     }
 
     @Override
-    public void deleteProduit(Long id) {
+    public void delete(Long id) {
         Produit produit = new Produit();
         produit.setId(id);
         this.produitRepository.delete(produit);
+
 
     }
 }

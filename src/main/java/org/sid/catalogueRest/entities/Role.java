@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.sid.catalogueRest.util.RoleEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,7 +22,7 @@ public class Role implements Serializable {
     private Long id;
     private String name;
 
-    public Role(String name) {
-        this.name = name;
+    public Role(RoleEnum role) {
+        this.name = role.getName();
     }
 }
