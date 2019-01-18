@@ -13,8 +13,8 @@ public class CrudController<T, ID> {
 
     @Autowired
     private ICrudService<T, ID> service;
-    @Autowired
-    private CrudMockServiceImpl produitMockService;
+//    @Autowired
+//    private CrudMockServiceImpl produitMockService;
 
     @GetMapping
     public List<T> getALL() {
