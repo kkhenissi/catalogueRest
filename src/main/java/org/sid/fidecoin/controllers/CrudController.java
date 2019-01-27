@@ -1,8 +1,7 @@
-package org.sid.catalogueRest.controllers;
+package org.sid.fidecoin.controllers;
 
 
-import org.sid.catalogueRest.services.CrudMockServiceImpl;
-import org.sid.catalogueRest.services.ICrudService;
+import org.sid.fidecoin.services.ICrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

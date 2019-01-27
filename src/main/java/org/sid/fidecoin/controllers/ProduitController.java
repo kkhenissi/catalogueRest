@@ -1,11 +1,11 @@
-package org.sid.catalogueRest.controllers;
+package org.sid.fidecoin.controllers;
 
-import org.sid.catalogueRest.entities.Produit;
+import org.sid.fidecoin.entities.Item;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/produit")
-public class ProduitController  extends CrudController<Produit, Long> {
+public class ProduitController  extends CrudController<Item, Long> {
 
 
 

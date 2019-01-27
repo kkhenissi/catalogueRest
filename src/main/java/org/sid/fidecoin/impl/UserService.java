@@ -1,8 +1,8 @@
-package org.sid.catalogueRest.impl;
+package org.sid.fidecoin.impl;
 
-import org.sid.catalogueRest.dao.UserRepository;
-import org.sid.catalogueRest.entities.User;
-import org.sid.catalogueRest.services.ICrudService;
+import org.sid.fidecoin.dao.UserRepository;
+import org.sid.fidecoin.entities.User;
+import org.sid.fidecoin.services.ICrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;

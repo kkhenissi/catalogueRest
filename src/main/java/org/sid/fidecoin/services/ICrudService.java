@@ -1,4 +1,4 @@
-package org.sid.catalogueRest.services;
+package org.sid.fidecoin.services;
 
 
 

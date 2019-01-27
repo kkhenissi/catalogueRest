@@ -1,4 +1,4 @@
-package org.sid.catalogueRest;
+package org.sid.fidecoin;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

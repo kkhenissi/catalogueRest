@@ -1,9 +1,9 @@
-package org.sid.catalogueRest.controllers;
+package org.sid.fidecoin.controllers;
 
-import org.sid.catalogueRest.dao.RoleRepository;
-import org.sid.catalogueRest.entities.Role;
-import org.sid.catalogueRest.entities.User;
-import org.sid.catalogueRest.util.RoleEnum;
+import org.sid.fidecoin.dao.RoleRepository;
+import org.sid.fidecoin.entities.Role;
+import org.sid.fidecoin.entities.User;
+import org.sid.fidecoin.util.RoleEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

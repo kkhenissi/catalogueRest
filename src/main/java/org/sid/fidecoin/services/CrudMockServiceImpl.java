@@ -1,22 +1,22 @@
-package org.sid.catalogueRest.services;
+package org.sid.fidecoin.services;
 
-import org.sid.catalogueRest.entities.Produit;
+import org.sid.fidecoin.entities.Item;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 @Service
-public class CrudMockServiceImpl implements ICrudService<Produit , Long> {
+public class CrudMockServiceImpl implements ICrudService<Item, Long> {
 
-    private List<Produit> produits;
+    private List<Item> items;
 
 
 
 
     public CrudMockServiceImpl() {
-        produits = new ArrayList<Produit>();
+        items = new ArrayList<Item>();
 
-        produits.forEach(p -> {
+        items.forEach(p -> {
         });
 
     }
@@ -26,30 +26,30 @@ public class CrudMockServiceImpl implements ICrudService<Produit , Long> {
 
 
     @Override
-    public List<Produit> getaLL() {
+    public List<Item> getaLL() {
         return null;
     }
 
     @Override
-    public void add(Produit produit) {
-        produits.add(produit);
+    public void add(Item item) {
+        items.add(item);
 
     }
 
     @Override
-    public void update(Produit produit) {
-        produits.remove(produit);
-        produits.add(produit);
+    public void update(Item item) {
+        items.remove(item);
+        items.add(item);
 
     }
 
     @Override
     public void delete(Long id) {
         System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmm>"+ id);
-        Produit produit = new Produit();
-        produit.setId(id);
-        System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyy>"+ produit.getRef());
-        produits.remove(produit);
+        Item item = new Item();
+        item.setIdItem(id);
+        System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyy>"+ item.getNameItem());
+        items.remove(item);
 
     }
 

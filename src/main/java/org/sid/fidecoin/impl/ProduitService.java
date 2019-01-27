@@ -1,8 +1,9 @@
-package org.sid.catalogueRest.impl;
+package org.sid.fidecoin.impl;
 
-import org.sid.catalogueRest.dao.ProduitRepository;
-import org.sid.catalogueRest.entities.Produit;
-import org.sid.catalogueRest.services.ICrudService;
+import org.sid.fidecoin.dao.ItemRepository;
+
+import org.sid.fidecoin.entities.Item;
+import org.sid.fidecoin.services.ICrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -10,34 +11,34 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 @Primary
-public class ProduitService implements ICrudService<Produit, Long> {
+public class ProduitService implements ICrudService<Item, Long> {
 
     @Autowired
 
-    private ProduitRepository produitRepository;
+    private ItemRepository itemRepository;
 
     @Override
-    public List<Produit> getaLL() {
-        return this.produitRepository.findAll();
+    public List<Item> getaLL() {
+        return this.itemRepository.findAll();
     }
 
     @Override
-    public void add(Produit entity) {
-        this.produitRepository.save(entity);
+    public void add(Item entity) {
+        this.itemRepository.save(entity);
 
     }
 
     @Override
-    public void update(Produit entity) {
-        this.produitRepository.saveAndFlush(entity);
+    public void update(Item entity) {
+        this.itemRepository.saveAndFlush(entity);
 
     }
 
     @Override
     public void delete(Long id) {
-        Produit produit = new Produit();
-        produit.setId(id);
-        this.produitRepository.delete(produit);
+        Item item = new Item();
+        item.setIdItem(id);
+        this.itemRepository.delete(item);
 
 
     }

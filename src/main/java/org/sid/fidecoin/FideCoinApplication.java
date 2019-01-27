@@ -1,40 +1,37 @@
-package org.sid.catalogueRest;
+package org.sid.fidecoin;
 
-import org.sid.catalogueRest.dao.ProduitRepository;
-import org.sid.catalogueRest.dao.RoleRepository;
-import org.sid.catalogueRest.dao.UserRepository;
-import org.sid.catalogueRest.entities.Produit;
-import org.sid.catalogueRest.util.RoleEnum;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.boot.CommandLineRunner;
+import org.sid.fidecoin.dao.ItemRepository;
+import org.sid.fidecoin.dao.RoleRepository;
+import org.sid.fidecoin.dao.UserRepository;
+import org.sid.fidecoin.entities.Item;
+import org.sid.fidecoin.util.RoleEnum;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.sid.catalogueRest.entities.Role;
-import org.sid.catalogueRest.entities.User;
+import org.sid.fidecoin.entities.Role;
+import org.sid.fidecoin.entities.User;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 @SpringBootApplication
-public class CatalogueRestApplication {
+public class FideCoinApplication {
 
 	public static void main(String[] args) {
 
-		ConfigurableApplicationContext ctx = SpringApplication.run(CatalogueRestApplication.class, args);
+		ConfigurableApplicationContext ctx = SpringApplication.run(FideCoinApplication.class, args);
 
-		ProduitRepository produitRepository = ((ConfigurableApplicationContext) ctx).getBean(ProduitRepository.class);
+		ItemRepository itemRepository = ((ConfigurableApplicationContext) ctx).getBean(ItemRepository.class);
 
-		produitRepository.save(new Produit(1L,"Livre", 512, 250));
-		produitRepository.save(new Produit(2L,"Cahier", 312, 215));
-		produitRepository.save(new Produit(3L,"Stylo", 342, 12));
-		produitRepository.save(new Produit(4L,"Valise", 52, 1550));
-		produitRepository.save(new Produit(5L,"Ram papier", 112, 125));
-		produitRepository.save(new Produit(6L,"LXXXXXX", 622, 250));
-		produitRepository.save(new Produit(7L,"LDDDDDD", 422, 275));
-		produitRepository.save(new Produit(8L,"LZZZZZZ", 612, 650));
+
+
+	//	itemRepository.save(new Item(1L,"Livre", "kkkkkddddddkkkkkkk", 512, 250,1L));
+//		produitRepository.save(new Item(2L,"Cahier", "", 312, 215));
+//		produitRepository.save(new Item(3L,"Stylo", "", 342, 12));
+//		produitRepository.save(new Item(4L,"Valise", "", 52, 1550));
+//		produitRepository.save(new Item(5L,"Ram papier", "", 112, 125));
+//		produitRepository.save(new Item(6L,"LXXXXXX", "", 622, 250));
+//		produitRepository.save(new Item(7L,"LDDDDDD", "", 422, 275));
+//		produitRepository.save(new Item(8L,"LZZZZZZ", "", 612, 650));
 
 		RoleRepository roleRepository = ctx.getBean(RoleRepository.class);
 

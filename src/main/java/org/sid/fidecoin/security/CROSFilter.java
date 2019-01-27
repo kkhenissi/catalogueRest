@@ -1,4 +1,4 @@
-package org.sid.catalogueRest.security;
+package org.sid.fidecoin.security;
 import java.io.IOException;
 
 import javax.servlet.Filter;

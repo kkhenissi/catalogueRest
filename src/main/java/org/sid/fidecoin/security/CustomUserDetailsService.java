@@ -1,4 +1,4 @@
-package org.sid.catalogueRest.security;
+package org.sid.fidecoin.security;
 // package com.example.demo.security;
 
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import org.sid.catalogueRest.entities.Role;
-import org.sid.catalogueRest.entities.User;
-import org.sid.catalogueRest.dao.UserRepository;
+import org.sid.fidecoin.entities.Role;
+import org.sid.fidecoin.entities.User;
+import org.sid.fidecoin.dao.UserRepository;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService{

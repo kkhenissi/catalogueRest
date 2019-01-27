@@ -1,4 +1,4 @@
-package org.sid.catalogueRest.entities;
+package org.sid.fidecoin.entities;
 
 import lombok.*;
 

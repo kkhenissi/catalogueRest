@@ -1,8 +1,6 @@
-package org.sid.catalogueRest.security;
+package org.sid.fidecoin.security;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class CORSFilterTest {
 

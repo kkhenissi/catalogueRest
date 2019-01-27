@@ -1,4 +1,4 @@
-package org.sid.catalogueRest.util;
+package org.sid.fidecoin.util;
 
 public enum RoleEnum {
     ROLE_USER("ROLE_USER"),
