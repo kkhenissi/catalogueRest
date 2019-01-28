@@ -6,10 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -20,6 +17,10 @@ import java.io.Serializable;
 public class Photo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PHOTO_ID")
     private Long idPhoto;
     private String urlPhoto;
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="ID_item")
+    private Item item;
 }

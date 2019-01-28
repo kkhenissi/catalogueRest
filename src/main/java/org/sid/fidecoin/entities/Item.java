@@ -28,7 +28,8 @@ public class Item implements Serializable {
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="CODE_TVA")
     private Tva tva;
-    @OneToMany()
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="id_photo")
     private Collection<Photo> photos;
 
 

@@ -18,9 +18,9 @@ public class FideCoinApplication {
 
 	public static void main(String[] args) {
 
-		ConfigurableApplicationContext ctx = SpringApplication.run(FideCoinApplication.class, args);
+	ConfigurableApplicationContext ctx = SpringApplication.run(FideCoinApplication.class, args);
 
-		ItemRepository itemRepository = ((ConfigurableApplicationContext) ctx).getBean(ItemRepository.class);
+//		ItemRepository itemRepository = ((ConfigurableApplicationContext) ctx).getBean(ItemRepository.class);
 
 
 
