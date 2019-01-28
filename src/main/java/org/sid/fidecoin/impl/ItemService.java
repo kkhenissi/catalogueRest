@@ -11,10 +11,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 @Primary
-public class ProduitService implements ICrudService<Item, Long> {
+public class ItemService implements ICrudService<Item, Long> {
 
     @Autowired
-
     private ItemRepository itemRepository;
 
     @Override

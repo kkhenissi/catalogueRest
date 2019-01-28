@@ -40,6 +40,6 @@ public class Item implements Serializable {
         this.startPrice = startPrice;
     }
 
-    public Item(long idItem, String nameItem, String descriptionItem, int quantiteItem, long startPrice) {
+    public Item(long idItem, String nameItem, String descriptionItem, int quantiteItem, float startPrice) {
     }
 }

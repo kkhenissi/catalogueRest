@@ -25,6 +25,8 @@ public class CrudUserController extends CrudController<User, Long> {
 
     public void add(@RequestBody  User user) {
         Role role = roleRepository.findByName(RoleEnum.ROLE_USER.getName());
+        System.out.println("///////////////////////////////////////////////////////////");
+        System.out.println(role);
         user.setRoles(Arrays.asList(role));
         user.setEnable(true);
         super.add(user);

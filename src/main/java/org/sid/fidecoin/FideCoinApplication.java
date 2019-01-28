@@ -33,29 +33,29 @@ public class FideCoinApplication {
 //		produitRepository.save(new Item(7L,"LDDDDDD", "", 422, 275));
 //		produitRepository.save(new Item(8L,"LZZZZZZ", "", 612, 650));
 
-		RoleRepository roleRepository = ctx.getBean(RoleRepository.class);
-
-        Role roleUser = new Role(RoleEnum.ROLE_USER);
+//		RoleRepository roleRepository = ctx.getBean(RoleRepository.class);
+//
+//        Role roleUser = new Role(RoleEnum.ROLE_USER);
 
       //  roleUser.setName("ROLE_USER");
-		Role roleAdmin = new Role(RoleEnum.ROLE_ADMIN);
+	//	Role roleAdmin = new Role(RoleEnum.ROLE_ADMIN);
 
 	  //	roleAdmin.setName("ROLE_ADMIN");
-		roleRepository.save(roleUser);
-		roleRepository.save(roleAdmin);
+//		roleRepository.save(roleUser);
+//		roleRepository.save(roleAdmin);
 
 
-		UserRepository userRepository = ctx.getBean(UserRepository.class);
-
-		User  user = new User("user", "user", true);
-		user.setRoles(Arrays.asList(roleUser));
-		userRepository.save(user);
-
-
-		User  admin = new User("admin", "admin", true);
-		admin.setRoles(Arrays.asList(roleAdmin, roleUser));
+//		UserRepository userRepository = ctx.getBean(UserRepository.class);
+//
+//		User  user = new User("user", "user", true);
+//		user.setRoles(Arrays.asList(roleUser));
+//		userRepository.save(user);
+//
+//
+//		User  admin = new User("admin", "admin", true);
+//		admin.setRoles(Arrays.asList(roleAdmin, roleUser));
 		//admin.setRoles(Arrays.asList(roleUser));
-		userRepository.save(admin);
+//		userRepository.save(admin);
 
 	}
 
