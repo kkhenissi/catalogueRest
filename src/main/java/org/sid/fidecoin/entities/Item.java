@@ -28,15 +28,17 @@ public class Item implements Serializable {
     private int quantiteItem;
     private float startPrice;
     private float actualPrice;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date dateItem;
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="CODE_TVA")
     private Tva tva;
-//    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private Collection<Photo> photos;
+  //  @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private String photoItem;
 
-
+    public Long getIdItem() {
+        return idItem;
+    }
 //    public Item(Long idItem, @NotEmpty @Size(min = 5, max = 100) String nameItem, @NotEmpty String descriptionItem, int quantiteItem, float startPrice) {
 //        this.idItem = idItem;
 //        this.nameItem = nameItem;

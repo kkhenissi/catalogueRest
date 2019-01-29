@@ -7,7 +7,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Date;
 
 @SpringBootApplication
@@ -18,15 +20,18 @@ public class FideCoinApplication {
 	ConfigurableApplicationContext ctx = SpringApplication.run(FideCoinApplication.class, args);
 
 		ItemRepository itemRepository = ((ConfigurableApplicationContext) ctx).getBean(ItemRepository.class);
-		PhotoRepository photoRepository = (PhotoRepository) ctx.getBean(PhotoRepository.class);
+	//	PhotoRepository photoRepository = (PhotoRepository) ctx.getBean(PhotoRepository.class);
 		TvaRepository tvaRepository = (TvaRepository) ctx.getBean(TvaRepository.class);
 
-		Photo ph1=photoRepository.save(new Photo("kkkkkkkkk"));
-		Tva tv1=tvaRepository.save(new Tva());
+//		Photo ph1=photoRepository.save(new Photo());
+//		ph1.setUrlPhoto("jjjjjjjjjjjjjjjjjjj");
+//		Tva tv1=tvaRepository.save(new Tva());
+//		ArrayList<Photo> photos = new ArrayList();
+//		photos.add(ph1);
 
 
 
-		itemRepository.save(new Item(1L,"Livre", "kkkkkddddddkkkkkkk", 512, 250,500, new Date(), tv1));
+	//	itemRepository.save(new Item(2L,"Livre", "kkkkkddddddkkkkkkk", 512, 250,500, new Date(), tv1, photos));
 //		produitRepository.save(new Item(2L,"Cahier", "", 312, 215));
 //		produitRepository.save(new Item(3L,"Stylo", "", 342, 12));
 //		produitRepository.save(new Item(4L,"Valise", "", 52, 1550));
