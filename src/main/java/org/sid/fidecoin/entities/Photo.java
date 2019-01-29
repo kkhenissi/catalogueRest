@@ -17,10 +17,13 @@ import java.io.Serializable;
 public class Photo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PHOTO_ID")
+    @Column(name = "ID_PHOTO")
     private Long idPhoto;
     private String urlPhoto;
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="ID_item")
+    @ManyToOne
+    @JoinColumn(name = "ID_item")
     private Item item;
+
+    public Photo(String kkkkkkkkk) {
+    }
 }

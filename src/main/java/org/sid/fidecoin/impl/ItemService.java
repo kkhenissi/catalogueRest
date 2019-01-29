@@ -18,18 +18,18 @@ public class ItemService implements ICrudService<Item, Long> {
 
     @Override
     public List<Item> getaLL() {
-        return this.itemRepository.findAll();
+        return itemRepository.findAll();
     }
 
     @Override
     public void add(Item entity) {
-        this.itemRepository.save(entity);
+        itemRepository.save(entity);
 
     }
 
     @Override
     public void update(Item entity) {
-        this.itemRepository.saveAndFlush(entity);
+        itemRepository.saveAndFlush(entity);
 
     }
 
@@ -37,7 +37,7 @@ public class ItemService implements ICrudService<Item, Long> {
     public void delete(Long id) {
         Item item = new Item();
         item.setIdItem(id);
-        this.itemRepository.delete(item);
+        itemRepository.delete(item);
 
 
     }

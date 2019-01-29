@@ -1,17 +1,14 @@
 package org.sid.fidecoin;
 
-import org.sid.fidecoin.dao.ItemRepository;
-import org.sid.fidecoin.dao.RoleRepository;
-import org.sid.fidecoin.dao.UserRepository;
-import org.sid.fidecoin.entities.Item;
+import org.sid.fidecoin.dao.*;
+import org.sid.fidecoin.entities.*;
 import org.sid.fidecoin.util.RoleEnum;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.sid.fidecoin.entities.Role;
-import org.sid.fidecoin.entities.User;
 
 import java.util.Arrays;
+import java.util.Date;
 
 @SpringBootApplication
 public class FideCoinApplication {
@@ -20,11 +17,16 @@ public class FideCoinApplication {
 
 	ConfigurableApplicationContext ctx = SpringApplication.run(FideCoinApplication.class, args);
 
-//		ItemRepository itemRepository = ((ConfigurableApplicationContext) ctx).getBean(ItemRepository.class);
+		ItemRepository itemRepository = ((ConfigurableApplicationContext) ctx).getBean(ItemRepository.class);
+		PhotoRepository photoRepository = (PhotoRepository) ctx.getBean(PhotoRepository.class);
+		TvaRepository tvaRepository = (TvaRepository) ctx.getBean(TvaRepository.class);
+
+		Photo ph1=photoRepository.save(new Photo("kkkkkkkkk"));
+		Tva tv1=tvaRepository.save(new Tva());
 
 
 
-	//	itemRepository.save(new Item(1L,"Livre", "kkkkkddddddkkkkkkk", 512, 250,1L));
+		itemRepository.save(new Item(1L,"Livre", "kkkkkddddddkkkkkkk", 512, 250,500, new Date(), tv1));
 //		produitRepository.save(new Item(2L,"Cahier", "", 312, 215));
 //		produitRepository.save(new Item(3L,"Stylo", "", 342, 12));
 //		produitRepository.save(new Item(4L,"Valise", "", 52, 1550));
