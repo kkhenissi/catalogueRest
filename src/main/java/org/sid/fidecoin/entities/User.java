@@ -1,36 +1,63 @@
 package org.sid.fidecoin.entities;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.util.List;
-
-
-@Entity
-@Getter
-@Setter
-@NoArgsConstructor
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
+import java.util.Collection;
 @AllArgsConstructor
-public class User {
-    public User(String username, String password, boolean enable) {
-        this.username = username;
-        this.password = password;
-        this.enable = enable;
-    }
-
+@NoArgsConstructor
+@Entity
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "USER_ID")
-    private Long id;
-    @Column(unique = true)
-    private String username;
+    private Long idUser;
+    private String userName;
     private String password;
-    private boolean enable;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "USERS_ROLES",
-    joinColumns = {@JoinColumn(name = "USER_ID")},
-    inverseJoinColumns = {@JoinColumn(name = "ROLE_ID")})
-    private List<Role> roles;
+    private boolean active;
+    private Collection<Role> roles;
 
+    public Long getIdUser() {
+        return idUser;
+    }
 
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
+    }
 }
