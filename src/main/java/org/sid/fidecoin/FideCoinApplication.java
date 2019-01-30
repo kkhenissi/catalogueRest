@@ -9,18 +9,15 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 
 @SpringBootApplication
-public class FideCoinApplication implements CommandLineRunner {
+public class FideCoinApplication  {
 
 	public static void main(String[] args) {
 
-		ConfigurableApplicationContext ctx = SpringApplication.run(FideCoinApplication.class, args);
+		SpringApplication.run(FideCoinApplication.class, args);
 
 
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
 
-	}
 }
 

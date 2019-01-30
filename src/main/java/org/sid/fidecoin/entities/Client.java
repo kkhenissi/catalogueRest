@@ -3,10 +3,7 @@ package org.sid.fidecoin.entities;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
 @AllArgsConstructor
@@ -14,12 +11,13 @@ import java.util.Collection;
 @Entity
 public class Client implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idClient;
     private String nomClient;
     private String adresseClient;
     private String emailClient;
     private String telepClient;
+    @OneToMany(mappedBy = "client")
     private Collection<Commande> commandes;
 
     public Long getIdClient() {

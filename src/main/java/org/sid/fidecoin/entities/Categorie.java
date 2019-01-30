@@ -3,10 +3,9 @@ package org.sid.fidecoin.entities;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Collection;
 @Entity
@@ -15,10 +14,15 @@ import java.util.Collection;
 public class Categorie implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCategorie;
+    @NotEmpty
+    @Size(min = 5, max= 15)
     private String nomCategoris;
+    @Size(min=5)
     private String description;
+    @Lob
     private byte[] photo;
     private String nomPhoto;
+    @OneToMany(mappedBy = "categorie")
     private Collection<Produit> produits;
 
     public Long getIdCategorie() {

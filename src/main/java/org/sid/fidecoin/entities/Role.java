@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Entity
 public class Role implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRole;
     private String noleName;
 

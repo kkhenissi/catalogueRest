@@ -3,10 +3,7 @@ package org.sid.fidecoin.entities;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,9 +12,13 @@ public class LigneCommande implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long IdLigneCommande;
+    @ManyToOne
+    @JoinColumn(name = "idProduit")
     private Produit produit;
     private int quantite;
     private Double prix;
+    @ManyToOne
+    @JoinColumn(name = "idCommande")
     private Commande commande;
 
 
