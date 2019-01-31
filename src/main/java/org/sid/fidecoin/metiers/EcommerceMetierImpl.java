@@ -11,8 +11,7 @@ public class EcommerceMetierImpl  implements IAdminCategorieMetier{
     private IEcommerceDao iecommerceDao;
     @Override
     public Categorie addCategorie(Categorie cat) {
-        return null;
-                //iecommerceDao.addCategorie(cat);
+        return iecommerceDao.addCategorie(cat);
     }
 
     @Override

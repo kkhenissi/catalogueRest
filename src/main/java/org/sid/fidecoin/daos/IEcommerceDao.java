@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IEcommerceDao {
 
-    public Long addCategorie(Categorie cat);
+    public Categorie addCategorie(Categorie cat);
     public List<Categorie> listCategories();
     public Categorie getCategorie(Long idCat);
     public void deleteCategorie(Long idCat);

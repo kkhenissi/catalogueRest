@@ -12,9 +12,9 @@ public class EcommerceImpl implements IEcommerceDao {
     @Autowired
     private EntityManager em;
     @Override
-    public Long addCategorie(Categorie cat) {
+    public Categorie addCategorie(Categorie cat) {
         em.persist(cat);
-        return cat.getIdCategorie();
+        return cat;
     }
 
     @Override
