@@ -28,22 +28,14 @@ public class AdminCategorieRestController {
      */
     private static final Logger LOG_FONCT = LoggerFactory.getLogger("fonctionnel");
 //    @Autowired
-//    private EcommerceMetierImpl ecommerceMetier;
-    @Autowired
-    private IAdminCategorieMetier metier;
+//    private IAdminCategorieMetier metier;
     @Autowired
     private CategorieRepository categorieRepository;
-
-
-//    public AdminCategorieRestController(EcommerceMetierImpl ecommerceMetier)  {
-//        this.ecommerceMetier = ecommerceMetier;
-//    }
 
 
     @PostMapping("")
     public Categorie saveCategorie(@RequestBody Categorie cat,
                                    MultipartFile file) throws IOException {
-
 //        if (!file.isEmpty()) {
 //           // look if is a veritable photo
 //            BufferedImage bi = ImageIO.read(file.getInputStream());
@@ -51,7 +43,6 @@ public class AdminCategorieRestController {
 //            cat.setNomPhoto(file.getOriginalFilename());
 //            cat.setPhoto(file.getBytes());
 //        }
-
 
         return categorieRepository.save(cat);
     }
@@ -63,29 +54,29 @@ public class AdminCategorieRestController {
      return categorieRepository.findAll();
     }
 
+//    @GetMapping("")
+//    public Categorie findCategorie(Long idCat) {
+//
+//        return categorieRepository.getOne(idCat);
+//    }
+
 
     // specific actionRest will recup photo from database
     @RequestMapping(value = "photoCat", produces = MediaType.IMAGE_JPEG_VALUE)
     @ResponseBody
     public byte[] photoCat(Long idCat) throws IOException {
         Categorie cat=categorieRepository.getOne(idCat);
-
-
         return IOUtils.toByteArray(new ByteArrayInputStream(cat.getPhoto()));
-
     }
 
     @DeleteMapping("")
     public void  deleteCategorie(@RequestBody Categorie cat) throws IOException {
-
        categorieRepository.delete(cat);
     }
 
     @PutMapping("")
     public Categorie  updateCategorie(@RequestBody Categorie cat) throws IOException {
-
       return  categorieRepository.saveAndFlush(cat);
-
     }
 
 
