@@ -3,12 +3,13 @@ package org.sid.fidecoin.daos;
 import org.sid.fidecoin.entities.*;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IEcommerceDao {
 
     public Categorie addCategorie(Categorie cat);
     public List<Categorie> listCategories();
-    public Categorie getCategorie(Long idCat);
+    public Optional<Categorie> getCategorie(Long idCat);
     public void deleteCategorie(Long idCat);
     public void updateCategorie(Categorie cat);
 

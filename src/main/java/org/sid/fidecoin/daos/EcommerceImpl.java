@@ -2,121 +2,129 @@ package org.sid.fidecoin.daos;
 
 import org.sid.fidecoin.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
+@Component
 public class EcommerceImpl implements IEcommerceDao {
+
     @Autowired
-    private EntityManager em;
+    private CategorieRepository categorieRepository;
+
     @Override
     public Categorie addCategorie(Categorie cat) {
-        em.persist(cat);
+
+        categorieRepository.save(cat);
         return cat;
     }
 
     @Override
     public List<Categorie> listCategories() {
-        Query req=em.createQuery("select c from Categorie c");
-        return req.getResultList();
+    //    Query req=em.createQuery("select c from Categorie c");
+        return categorieRepository.findAll();
     }
 
     @Override
-    public Categorie getCategorie(Long idCat) {
-        return em.find(Categorie.class, idCat);
+    public Optional<Categorie> getCategorie(Long idCat) {
+
+        return categorieRepository.findById(idCat);
     }
 
     @Override
-    public void deleteCategorie(Long idCat) {
-        Categorie c =em.find(Categorie.class, idCat);
-        em.remove(c);
+    public void deleteCategorie(@PathVariable("id")Long id) {
+     //   categorieRepository.delete(id);
 
     }
 
     @Override
     public void updateCategorie(Categorie cat) {
-        em.merge(cat);
+      //  em.merge(cat);
 
     }
 
     @Override
     public Long addProduit(Produit p, Long idCat) {
-        Categorie cat=em.find(Categorie.class, idCat);
-        p.setCategorie(cat);
-        em.persist(p);
-        return p.getIdProduit();
+//        Categorie cat=em.find(Categorie.class, idCat);
+//        p.setCategorie(cat);
+//        em.persist(p);
+       return null;
 
     }
 
     @Override
     public List<Produit> listProduits() {
-        Query req=em.createQuery("select p from Produit p");
-        return req.getResultList();
+//        Query req=em.createQuery("select p from Produit p");
+      return null;
     }
 
     @Override
     public List<Produit> produitsParMotCle(String mc) {
-        Query req=em.createQuery("select p from Produit p where p.designation like :x");
-        req.setParameter("x", "%"+mc+"%");
-        return req.getResultList();
+//        Query req=em.createQuery("select p from Produit p where p.designation like :x");
+//        req.setParameter("x", "%"+mc+"%");
+        return null;
     }
 
     @Override
     public List<Produit> produitsParCategorie(Long idCat) {
-        Query req=em.createQuery("select p from Produit p where p.categorie.idCategorie =:x");
-        req.setParameter("x", idCat);
-        return req.getResultList();
+//        Query req=em.createQuery("select p from Produit p where p.categorie.idCategorie =:x");
+//        req.setParameter("x", idCat);
+       return null;
     }
 
     @Override
     public List<Produit> produitsSelectionnes() {
-        Query req=em.createQuery("select p from Produit p where p.selectedProduit=true");
-        return req.getResultList();
+//        Query req=em.createQuery("select p from Produit p where p.selectedProduit=true");
+       return null;
     }
 
     @Override
-    public Produit getProduit(Long idP) {
-        return em.find(Produit.class, idP);
+    public Produit getProduit(Long idP)
+    {
+        return null;
     }
 
     @Override
     public void deleteProduit(Long idP) {
-        Produit p=getProduit(idP);
-        em.remove(p);
+//        Produit p=getProduit(idP);
+//        em.remove(p);
 
     }
 
     @Override
     public void updateProduit(Produit p) {
-        em.merge(p);
+    //    em.merge(p);
 
     }
 
     @Override
     public void addUser(User usr) {
-         em.persist(usr);
+
+        // em.persist(usr);
     }
 
     @Override
     public void attributeRole(Role r, Long idUser) {
-      User u=em.find(User.class,idUser);
-      u.getRoles().add(r);
-      em.persist(u);
+//      User u=em.find(User.class,idUser);
+//      u.getRoles().add(r);
+//      em.persist(u);
     }
 
     @Override
     public Commande saveCommande(Panier p, Client c) {
-        em.persist(c);
-        Commande cmd=new Commande();
-        cmd.setClient(c);
-        cmd.setDateCommande(new Date());
-        cmd.setLigneCommandes(p.getItems());
-        for(LigneCommande lc:p.getItems()){
-            em.persist(lc);
-        }
-        em.persist(cmd);
-        return cmd;
+//        em.persist(c);
+//        Commande cmd=new Commande();
+//        cmd.setClient(c);
+//        cmd.setDateCommande(new Date());
+//        cmd.setLigneCommandes(p.getItems());
+//        for(LigneCommande lc:p.getItems()){
+//            em.persist(lc);
+ //       }
+       // em.persist(cmd);
+        return null;
     }
 }

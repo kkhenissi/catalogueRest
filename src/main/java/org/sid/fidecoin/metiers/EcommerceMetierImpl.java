@@ -3,9 +3,12 @@ package org.sid.fidecoin.metiers;
 import org.sid.fidecoin.daos.IEcommerceDao;
 import org.sid.fidecoin.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Component
 public class EcommerceMetierImpl  implements IAdminCategorieMetier{
     @Autowired
     private IEcommerceDao iecommerceDao;
@@ -62,7 +65,7 @@ public class EcommerceMetierImpl  implements IAdminCategorieMetier{
 
     @Override
     public Categorie getCategorie(Long idCat) {
-        return iecommerceDao.getCategorie(idCat);
+        return null;
     }
 
     @Override
