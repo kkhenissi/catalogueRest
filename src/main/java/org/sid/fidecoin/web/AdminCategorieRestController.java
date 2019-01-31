@@ -1,5 +1,6 @@
 package org.sid.fidecoin.web;
 
+import org.apache.commons.io.IOUtils;
 import org.sid.fidecoin.daos.CategorieRepository;
 import org.sid.fidecoin.entities.Categorie;
 import org.sid.fidecoin.metiers.EcommerceMetierImpl;
@@ -7,11 +8,13 @@ import org.sid.fidecoin.metiers.IAdminCategorieMetier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -50,13 +53,39 @@ public class AdminCategorieRestController {
 //        }
 
 
-        return metier.addCategorie(cat);
-
+        return categorieRepository.save(cat);
     }
+
+
     @GetMapping("")
     public List<Categorie> getCategories() {
 
      return categorieRepository.findAll();
+    }
+
+
+    // specific actionRest will recup photo from database
+    @RequestMapping(value = "photoCat", produces = MediaType.IMAGE_JPEG_VALUE)
+    @ResponseBody
+    public byte[] photoCat(Long idCat) throws IOException {
+        Categorie cat=categorieRepository.getOne(idCat);
+
+
+        return IOUtils.toByteArray(new ByteArrayInputStream(cat.getPhoto()));
+
+    }
+
+    @DeleteMapping("")
+    public void  deleteCategorie(@RequestBody Categorie cat) throws IOException {
+
+       categorieRepository.delete(cat);
+    }
+
+    @PutMapping("")
+    public Categorie  updateCategorie(@RequestBody Categorie cat) throws IOException {
+
+      return  categorieRepository.saveAndFlush(cat);
+
     }
 
 
