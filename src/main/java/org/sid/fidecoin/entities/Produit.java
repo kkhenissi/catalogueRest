@@ -17,7 +17,7 @@ public class Produit implements Serializable {
     private Long idProduit;
     private String nomProduit;
     @NotEmpty
-    @Size(min = 5, max=20)
+    @Size(min = 5, max=50)
     private String designation;
     private Double startPrice;
     private Double currentPrice;

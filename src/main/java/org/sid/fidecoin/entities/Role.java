@@ -2,6 +2,7 @@ package org.sid.fidecoin.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.sid.fidecoin.util.RoleEnum;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,11 @@ public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRole;
-    private String noleName;
+    private String roleName;
+
+    public Role(RoleEnum role) {
+        this.roleName = role.getName();
+    }
 
     public Long getIdRole() {
         return idRole;
@@ -25,11 +30,11 @@ public class Role implements Serializable {
         this.idRole = idRole;
     }
 
-    public String getNoleName() {
-        return noleName;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setNoleName(String noleName) {
-        this.noleName = noleName;
+    public void setRoleName(String noleName) {
+        this.roleName = noleName;
     }
 }

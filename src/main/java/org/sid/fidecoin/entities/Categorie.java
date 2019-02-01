@@ -1,5 +1,6 @@
 package org.sid.fidecoin.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -15,7 +16,7 @@ public class Categorie implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCategorie;
     @NotEmpty
-    @Size(min = 5, max= 15)
+    @Size(min = 5, max= 20)
     private String nomCategoris;
     @Size(min=5)
     private String description;
@@ -44,7 +45,7 @@ public class Categorie implements Serializable {
     public String getNomPhoto() {
         return nomPhoto;
     }
-
+    @JsonIgnore
     public Collection<Produit> getProduits() {
         return produits;
     }

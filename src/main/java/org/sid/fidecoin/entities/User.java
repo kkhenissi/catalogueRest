@@ -6,20 +6,24 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idUser;
     private String userName;
     private String password;
     private boolean active;
-    @OneToMany
-    @JoinColumn(name = "user_id")
-    private Collection<Role> roles;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "USERS_ROLES",
+            joinColumns = {@JoinColumn(name = "USER_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "ROLE_ID")})
+    private List<Role> roles;
 
     public Long getIdUser() {
         return idUser;
@@ -53,11 +57,11 @@ public class User implements Serializable {
         this.active = active;
     }
 
-    public Collection<Role> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Collection<Role> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 }

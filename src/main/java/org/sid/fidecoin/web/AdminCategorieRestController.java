@@ -16,6 +16,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.List;
 
 @RestController
@@ -48,6 +49,22 @@ public class AdminCategorieRestController {
     }
 
 
+
+//    @GetMapping("")
+//    public Categorie getCategorie(@PathVariable Long idCat) throws IOException {
+////        if (!file.isEmpty()) {
+////           // look if is a veritable photo
+////            BufferedImage bi = ImageIO.read(file.getInputStream());
+////           //  BufferedImage allow us to redimention photo if we wont
+////            cat.setNomPhoto(file.getOriginalFilename());
+////            cat.setPhoto(file.getBytes());
+////        }
+//
+//        return categorieRepository.getOne(idCat);
+//    }
+
+
+
     @GetMapping("")
     public List<Categorie> getCategories() {
 
@@ -62,7 +79,7 @@ public class AdminCategorieRestController {
 
 
     // specific actionRest will recup photo from database
-    @RequestMapping(value = "photoCat", produces = MediaType.IMAGE_JPEG_VALUE)
+    @RequestMapping(value = "/photoCat", produces = MediaType.IMAGE_JPEG_VALUE)
     @ResponseBody
     public byte[] photoCat(Long idCat) throws IOException {
         Categorie cat=categorieRepository.getOne(idCat);
@@ -71,12 +88,14 @@ public class AdminCategorieRestController {
 
     @DeleteMapping("")
     public void  deleteCategorie(@RequestBody Categorie cat) throws IOException {
+     //   Categorie cat = categorieRepository.getOne(idCat);
+
        categorieRepository.delete(cat);
     }
 
     @PutMapping("")
     public Categorie  updateCategorie(@RequestBody Categorie cat) throws IOException {
-      return  categorieRepository.saveAndFlush(cat);
+      return  categorieRepository.save(cat);
     }
 
 

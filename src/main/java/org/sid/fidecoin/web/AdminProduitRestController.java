@@ -37,12 +37,12 @@ public class AdminProduitRestController {
         String path=System.getProperty("java.io.tmpdir");
         prd.setUrlPhoto(path);
         Produit p = produitRepository.save(prd);
-        if (!file.isEmpty()) {
-
-                    prd.setUrlPhoto(file.getOriginalFilename());
-
-                    file.transferTo(new File(path+"/"+"PROD_"+p.getIdProduit()));
-                             }
+//        if (!file.isEmpty()) {
+//
+//                    prd.setUrlPhoto(file.getOriginalFilename());
+//
+//                    file.transferTo(new File(path+"/"+"PROD_"+p.getIdProduit()));
+//                             }
 
         return (p);
     }
@@ -70,7 +70,7 @@ public class AdminProduitRestController {
 
     @PutMapping("")
     public Produit  updateProduit(@RequestBody Produit prd) throws IOException {
-        return  produitRepository.saveAndFlush(prd);
+        return  produitRepository.save(prd);
     }
 
 
