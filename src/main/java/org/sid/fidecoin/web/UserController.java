@@ -9,7 +9,6 @@ import java.security.Principal;
 public class UserController {
     @RequestMapping("/user")
     public Principal user(Principal user) {
-
         return user;
 
     }

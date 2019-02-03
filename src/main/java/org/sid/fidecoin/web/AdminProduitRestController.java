@@ -26,8 +26,8 @@ public class AdminProduitRestController {
     private ProduitRepository produitRepository;
 
 
-    @Autowired
-    private IAdminCategorieMetier metier;
+//    @Autowired
+//    private IAdminCategorieMetier metier;
 
 
     @PostMapping("")

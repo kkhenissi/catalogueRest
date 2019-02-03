@@ -5,17 +5,17 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "user")
-public class User implements Serializable {
+public class AppUser implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idUser;
+    @Column(unique = true)
     private String userName;
     private String password;
     private boolean active;
@@ -23,15 +23,15 @@ public class User implements Serializable {
     @JoinTable(name = "USERS_ROLES",
             joinColumns = {@JoinColumn(name = "USER_ID")},
             inverseJoinColumns = {@JoinColumn(name = "ROLE_ID")})
-    private List<Role> roles;
+    private List<AppRole> appRoles;
 
     public Long getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
-    }
+//    public void setIdUser(Long idUser) {
+//        this.idUser = idUser;
+//    }
 
     public String getUserName() {
         return userName;
@@ -57,11 +57,11 @@ public class User implements Serializable {
         this.active = active;
     }
 
-    public List<Role> getRoles() {
-        return roles;
+    public List<AppRole> getAppRoles() {
+        return appRoles;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
+    public void setAppRoles(List<AppRole> appRoles) {
+        this.appRoles = appRoles;
     }
 }

@@ -30,13 +30,13 @@ public class EcommerceMetierImpl  implements IAdminCategorieMetier{
     }
 
     @Override
-    public void addUser(User usr) {
+    public void addUser(AppUser usr) {
         iecommerceDao.addUser(usr);
 
     }
 
     @Override
-    public void attributeRole(Role r, Long idUser) {
+    public void attributeRole(AppRole r, Long idUser) {
         iecommerceDao.attributeRole(r, idUser);
 
     }

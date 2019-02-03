@@ -1,8 +1,8 @@
 package org.sid.fidecoin.metiers;
 
+import org.sid.fidecoin.entities.AppRole;
+import org.sid.fidecoin.entities.AppUser;
 import org.sid.fidecoin.entities.Categorie;
-import org.sid.fidecoin.entities.Role;
-import org.sid.fidecoin.entities.User;
 
 public interface IAdminCategorieMetier extends  IAdminProduitMetier{
 
@@ -14,6 +14,6 @@ public interface IAdminCategorieMetier extends  IAdminProduitMetier{
 
 
 
-    public void addUser(User usr);
-    public void attributeRole(Role r, Long idUser);
+    public void addUser(AppUser usr);
+    public void attributeRole(AppRole r, Long idUser);
 }

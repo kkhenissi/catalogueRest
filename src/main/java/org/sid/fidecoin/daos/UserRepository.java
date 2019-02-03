@@ -1,11 +1,13 @@
 package org.sid.fidecoin.daos;
 
-import org.sid.fidecoin.entities.User;
+import org.sid.fidecoin.entities.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+@RepositoryRestResource
+public interface UserRepository extends JpaRepository<AppUser, Long> {
 
-    User findByUserName(String username);
+    AppUser findByUserName(String username);
 
-    User findByPassword(String password);
+    AppUser findByPassword(String password);
 }

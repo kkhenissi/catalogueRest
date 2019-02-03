@@ -3,8 +3,8 @@ package org.sid.fidecoin.security;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
 import org.sid.fidecoin.daos.UserRepository;
-import org.sid.fidecoin.entities.Role;
-import org.sid.fidecoin.entities.User;
+import org.sid.fidecoin.entities.AppUser;
+import org.sid.fidecoin.entities.AppRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -24,30 +24,32 @@ public class CustomUserDetailsService implements UserDetailsService{
     private UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 
-        User user = userRepository.findByUserName(username);
+        AppUser user = userRepository.findByUserName(userName);
 
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;
 
         UserDetails userDetails = new org.springframework.security.core.userdetails.User(
-                username,
+                userName,
                 user.getPassword(),
                 user.isActive(),
                 accountNonExpired,
                 credentialsNonExpired,
                 accountNonLocked,
-                getAuthorities(user.getRoles()));
+                getAuthorities(user.getAppRoles()));
+        System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuussssssssssssssssssseeeeeeeeerr");
+        System.out.println(userDetails);
 
         return userDetails;
     }
 
-    private Collection<? extends GrantedAuthority> getAuthorities(List<Role> roles) {
+    private Collection<? extends GrantedAuthority> getAuthorities(List<AppRole> appRoles) {
         Collection<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-        for (Role role: roles) {
-            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role.getRoleName());
+        for (AppRole appRole : appRoles) {
+            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(appRole.getRoleName());
             grantedAuthorities.add(grantedAuthority);
         }
         return grantedAuthorities;

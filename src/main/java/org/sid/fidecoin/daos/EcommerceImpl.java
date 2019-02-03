@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.persistence.Query;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -102,15 +101,15 @@ public class EcommerceImpl implements IEcommerceDao {
     }
 
     @Override
-    public void addUser(User usr) {
+    public void addUser(AppUser usr) {
 
         // em.persist(usr);
     }
 
     @Override
-    public void attributeRole(Role r, Long idUser) {
-//      User u=em.find(User.class,idUser);
-//      u.getRoles().add(r);
+    public void attributeRole(AppRole r, Long idUser) {
+//      AppUser u=em.find(AppUser.class,idUser);
+//      u.getAppRoles().add(r);
 //      em.persist(u);
     }
 

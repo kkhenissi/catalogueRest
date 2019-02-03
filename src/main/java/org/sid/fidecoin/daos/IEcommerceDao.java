@@ -22,7 +22,7 @@ public interface IEcommerceDao {
     public void deleteProduit(Long idP);
     public void updateProduit(Produit p);
 
-    public void addUser(User usr);
-    public void attributeRole(Role r, Long idUser);
+    public void addUser(AppUser usr);
+    public void attributeRole(AppRole r, Long idUser);
     public Commande saveCommande(Panier p, Client c);
 }

@@ -1,10 +1,11 @@
 package org.sid.fidecoin.daos;
 
-import org.sid.fidecoin.entities.Role;
+import org.sid.fidecoin.entities.AppRole;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
+@RepositoryRestResource
+public interface RoleRepository extends JpaRepository<AppRole, Long> {
 
-public interface RoleRepository extends JpaRepository<Role, Long> {
-
-    Role findByRoleName(String name);
+    AppRole findByRoleName(String roleName);
 }

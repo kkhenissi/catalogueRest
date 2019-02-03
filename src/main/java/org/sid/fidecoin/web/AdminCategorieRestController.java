@@ -50,18 +50,18 @@ public class AdminCategorieRestController {
 
 
 
-//    @GetMapping("")
-//    public Categorie getCategorie(@PathVariable Long idCat) throws IOException {
-////        if (!file.isEmpty()) {
-////           // look if is a veritable photo
-////            BufferedImage bi = ImageIO.read(file.getInputStream());
-////           //  BufferedImage allow us to redimention photo if we wont
-////            cat.setNomPhoto(file.getOriginalFilename());
-////            cat.setPhoto(file.getBytes());
-////        }
-//
-//        return categorieRepository.getOne(idCat);
-//    }
+    @GetMapping("/{idCat}")
+    public Categorie getCategorie(@PathVariable("idCat")  Long idCat) throws IOException {
+//        if (!file.isEmpty()) {
+//           // look if is a veritable photo
+//            BufferedImage bi = ImageIO.read(file.getInputStream());
+//           //  BufferedImage allow us to redimention photo if we wont
+//            cat.setNomPhoto(file.getOriginalFilename());
+//            cat.setPhoto(file.getBytes());
+//        }
+
+        return categorieRepository.getOne(idCat);
+    }
 
 
 
