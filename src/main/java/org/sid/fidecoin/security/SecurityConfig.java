@@ -30,11 +30,13 @@ public class SecurityConfig extends  WebSecurityConfigurerAdapter {
      //    super.configure(http);
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.authorizeRequests().antMatchers("/login/**", "/register/**").permitAll();
          http.authorizeRequests().antMatchers("/categories/**").hasAuthority("ADMIN");
          http.authorizeRequests().antMatchers("/adminCat/**").hasAuthority("ADMIN");
          http.authorizeRequests().antMatchers("/adminProd/**").hasAuthority("USER");
          http.authorizeRequests().anyRequest().authenticated();
          http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
+         http.addFilterBefore(new JWTAutorizationFilter(), UsernamePasswordAuthenticationFilter.class);
 
      //     http.addFilterBefore(new JWTAutorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }

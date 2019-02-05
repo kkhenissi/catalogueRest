@@ -1,5 +1,6 @@
 package org.sid.fidecoin.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -17,6 +18,7 @@ public class AppUser implements Serializable {
     private Long idUser;
     @Column(unique = true)
     private String userName;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     private boolean active;
     @ManyToMany(fetch = FetchType.EAGER)
