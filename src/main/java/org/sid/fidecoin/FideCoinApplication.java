@@ -27,14 +27,15 @@ public class FideCoinApplication  {
 	@Bean
 	CommandLineRunner start(AccountService accountService) {
 		return args -> {
-		  	accountService.saveRole(new AppRole(RoleEnum.ROLE_USER));
-		  	accountService.saveRole(new AppRole(RoleEnum.ROLE_ADMIN));
-
-//			Stream.of("user1", "user2", "user3", "user4", "admin").forEach(one->{
+//		  	accountService.saveRole(new AppRole(RoleEnum.ROLE_USER));
+//		  	accountService.saveRole(new AppRole(RoleEnum.ROLE_ADMIN));
+//
+//			Stream.of("user1", "user2", "user3", "user4").forEach(one->{
 //				accountService.saveUser(one, "1234", "1234");
+//				// accountService.addRoleToUser(one, "ROLE_ADMIN");
 //			});
-			accountService.saveUser("admin", "1234", "1234");
-			accountService.addRoleToUser("admin", "ADMIN");
+//			accountService.saveUser("admin", "1234", "1234");
+//			accountService.addRoleToUser("admin", "ROLE_ADMIN");
 
 
 		};

@@ -12,18 +12,14 @@ public class JWTAutorizationFilter extends OncePerRequestFilter {
 
 
     @Override
-    protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-        System.out.println("************************************");
-        /*
-
-       */
-      String jwt = httpServletRequest.getHeader("Authorization");
-      if(jwt==null) throw new RuntimeException("not Authorized !");
+      String jwt = request.getHeader("Authorization");
+//      if(jwt==null) throw new RuntimeException("not Authorized !");
       /*
 
        */
 
-      filterChain.doFilter(httpServletRequest, httpServletResponse);
+     filterChain.doFilter(request, response);
     }
 }

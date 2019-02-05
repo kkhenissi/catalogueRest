@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
 public class AccountServiceImpl implements AccountService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -29,7 +28,7 @@ public class AccountServiceImpl implements AccountService {
         appUser.setActive(true);
         appUser.setPassword(bCryptPasswordEncoder.encode(password));
         userRepository.save(appUser);
-      //  addRoleToUser(userName, "USER_ROLE");
+        addRoleToUser(userName, "ROLE_USER");
 
         return appUser;
     }
@@ -54,11 +53,12 @@ public class AccountServiceImpl implements AccountService {
         System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
         System.out.println(appUser.toString());
         AppRole appRole =  roleRepository.findByRoleName(roleName);
-        if (appUser != null) {
-          //  usr.getAppRoles().add(role);
-            appUser.getAppRoles().add(appRole);
+        if (appUser != null && appRole != null) {
+            System.out.println("ssssssssssssssssssssssssssssssssssssssssssss");
+              appUser.getAppRoles().add(appRole);
+            userRepository.saveAndFlush(appUser);
         }
-        userRepository.saveAndFlush(appUser);
+
 
 
     }
