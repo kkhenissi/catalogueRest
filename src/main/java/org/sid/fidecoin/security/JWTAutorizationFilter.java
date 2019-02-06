@@ -26,29 +26,52 @@ public class JWTAutorizationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
 
-      String jwt = request.getHeader(SecurityParams.JWT_HEADER_NAME);
-      if(jwt==null || !jwt.startsWith(SecurityParams.HEADER_PREFIX)) {
-          filterChain.doFilter(request, response);
-          return;
-      }
-        JWTVerifier verifier=JWT.require(Algorithm.HMAC256(SecurityParams.SECRET)).build();
-          DecodedJWT decodedJWT = verifier.verify(jwt.substring(SecurityParams.HEADER_PREFIX.length()));
-          String userName=decodedJWT.getSubject();
-          List<String> roles=decodedJWT.getClaims().get("roles").asList(String.class);
-        Collection<GrantedAuthority> authorities=new ArrayList<>();
-        roles.forEach(r->{
-            ((ArrayList<GrantedAuthority>) authorities).add(new SimpleGrantedAuthority(r));
-        });
-
-        UsernamePasswordAuthenticationToken user = new
-                UsernamePasswordAuthenticationToken(userName, authorities);
-        SecurityContextHolder.getContext().setAuthentication(user);
-        filterChain.doFilter(request,response);
 
 
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, " +
+                "              Access-Control-Request-Method, Access-Control-Request-Headers, authorization");
+        response.addHeader("Access-Control-Expose-Headers", "Access-Control-Allow-Origin, " +
+                "              Access-Control-Allow-credentials, authorization");
+        response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH");
+
+        if (request.getMethod().equals("OPTIONS")) {
+            response.setStatus(HttpServletResponse.SC_OK);
+        }
+        else if (request.getRequestURI().equals("/login")){
+            filterChain.doFilter(request,response);
+              return;
+              }
 
 
+           else {
 
+            String jwtToken = request.getHeader(SecurityParams.JWT_HEADER_NAME);
+//            System.out.println("Token ===>" + jwtToken);
+            if (jwtToken == null || !jwtToken.startsWith(SecurityParams.HEADER_PREFIX)) {
+                filterChain.doFilter(request, response);
+                return;
+            }
+            JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SecurityParams.SECRET)).build();
+            String jwt = jwtToken.substring(SecurityParams.HEADER_PREFIX.length());
+            DecodedJWT decodedJWT = verifier.verify(jwt);
+//            System.out.println("JWT ===>" + jwt);
+            String userName = decodedJWT.getSubject();
+            List<String> roles = decodedJWT.getClaims().get("roles").asList(String.class);
+//            System.out.println("username ===>" + userName);
+//            System.out.println("roles ===>" + roles);
+            Collection<GrantedAuthority> authorities = new ArrayList<>();
+            roles.forEach(r -> {
+                ((ArrayList<GrantedAuthority>) authorities).add(new SimpleGrantedAuthority(r));
+            });
+
+            UsernamePasswordAuthenticationToken user = new
+                    UsernamePasswordAuthenticationToken(userName, null, authorities);
+            SecurityContextHolder.getContext().setAuthentication(user);
+            filterChain.doFilter(request, response);
+
+
+        }
 
 
 

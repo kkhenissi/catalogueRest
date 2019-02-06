@@ -47,11 +47,12 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void addRoleToUser(String userName, String roleName) {
-
+        System.out.println("rrrrrrrrrrrrrrrrrrroooooooooooooooooolllllllleeeeeeeeeeeennnnnnnnnnnaaaaaaaaaaaaaaammmmmmmmmmmeeeeeeeeee");
+        System.out.println(roleName);
 
         AppUser appUser = userRepository.findByUserName(userName);
         System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-        System.out.println(appUser.toString());
+        System.out.println(appUser);
         AppRole appRole =  roleRepository.findByRoleName(roleName);
         if (appUser != null && appRole != null) {
             System.out.println("ssssssssssssssssssssssssssssssssssssssssssss");
