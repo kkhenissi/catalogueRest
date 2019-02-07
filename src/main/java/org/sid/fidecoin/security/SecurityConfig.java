@@ -30,9 +30,9 @@ public class SecurityConfig extends  WebSecurityConfigurerAdapter {
 
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.authorizeRequests().antMatchers("/login/**", "/register/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/categories").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/produits").permitAll();
+        http.authorizeRequests().antMatchers("http://localhost:4200/login/**", "/register/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/categories/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/produits/**").permitAll();
          http.authorizeRequests().antMatchers("/categories/**").hasAuthority("ROLE_ADMIN");
          http.authorizeRequests().antMatchers("/adminCat/**").hasAuthority("ROLE_ADMIN");
          http.authorizeRequests().antMatchers("/adminProd/**").hasAuthority("ROLE_USER");
