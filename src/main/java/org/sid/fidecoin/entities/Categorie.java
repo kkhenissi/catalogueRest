@@ -17,7 +17,7 @@ public class Categorie implements Serializable {
     private Long idCategorie;
     @NotEmpty
     @Size(min = 5, max= 20)
-    private String nomCategoris;
+    private String nomCategorie;
     @Size(min=5)
     private String description;
     @Lob
@@ -30,8 +30,8 @@ public class Categorie implements Serializable {
         return idCategorie;
     }
 
-    public String getNomCategoris() {
-        return nomCategoris;
+    public String getNomCategorie() {
+        return nomCategorie;
     }
 
     public String getDescription() {
@@ -50,8 +50,8 @@ public class Categorie implements Serializable {
         return produits;
     }
 
-    public void setNomCategoris(String nomCategoris) {
-        this.nomCategoris = nomCategoris;
+    public void setNomCategorie(String nomCategorie) {
+        this.nomCategorie = nomCategorie;
     }
 
     public void setDescription(String description) {
