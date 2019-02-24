@@ -3,13 +3,13 @@ pipeline {
    stages{
      stage('Build'){
         steps{
-          sh 'home/kkhenissi/utility/maven-3.6.0/apache-maven-3.6.0/bin/mvn clean install'
+          sh 'home/utility/maven-3.6.0/apache-maven-3.6.0/bin/mvn clean install'
         }
      }
      
       stage('Test'){
         steps{
-          sh 'home/kkhenissi/utility/maven-3.6.0/apache-maven-3.6.0/bin/mvn clean test'
+          sh 'home/utility/maven-3.6.0/apache-maven-3.6.0/bin/mvn clean test'
         }
      }
    }
