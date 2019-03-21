@@ -20,6 +20,7 @@ public class Client implements Serializable {
     @OneToMany(mappedBy = "client")
     private Collection<Commande> commandes;
 
+
     public Long getIdClient() {
         return idClient;
     }
@@ -63,4 +64,6 @@ public class Client implements Serializable {
     public void setCommandes(Collection<Commande> commandes) {
         this.commandes = commandes;
     }
+
+
 }

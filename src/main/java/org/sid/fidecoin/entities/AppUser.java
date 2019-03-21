@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 
 @AllArgsConstructor
@@ -26,6 +27,10 @@ public class AppUser implements Serializable {
             joinColumns = {@JoinColumn(name = "ID_USER")},
             inverseJoinColumns = {@JoinColumn(name = "ROLE_ID")})
     private List<AppRole> appRoles;
+
+
+    @OneToMany(mappedBy = "appUser", cascade =  CascadeType.REMOVE,orphanRemoval = true)
+    private Collection<Produit> produits;
 
     public Long getIdUser() {
         return idUser;
@@ -62,5 +67,13 @@ public class AppUser implements Serializable {
 
     public void setAppRoles(List<AppRole> appRoles) {
         this.appRoles = appRoles;
+    }
+
+    public Collection<Produit> getProduits() {
+        return produits;
+    }
+
+    public void setProduits(Collection<Produit> produits) {
+        this.produits = produits;
     }
 }

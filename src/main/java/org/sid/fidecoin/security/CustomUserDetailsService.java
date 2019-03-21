@@ -21,6 +21,7 @@ import java.util.List;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService{
+    public AppUser currentUser;
 
 //    @Autowired
 //    private UserRepository userRepository;
@@ -35,6 +36,9 @@ public class CustomUserDetailsService implements UserDetailsService{
         AppUser appUser = accountService.loadUserByUserName(userName);
 
         if(appUser==null) throw new UsernameNotFoundException("invalid user !!");
+        currentUser = appUser;
+        System.out.println("------------------------++++++++++++++++++++++++++--------------------------");
+        System.out.println(currentUser);
         Collection<GrantedAuthority> authorities= new ArrayList<>();
         appUser.getAppRoles().forEach(r->{
             ((ArrayList<GrantedAuthority>) authorities).add(new SimpleGrantedAuthority(r.getRoleName()));

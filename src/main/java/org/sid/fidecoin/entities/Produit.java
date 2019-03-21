@@ -27,6 +27,9 @@ public class Produit implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idCategorie")
     private Categorie categorie;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUser")
+    private AppUser appUser;
 
     public Long getIdProduit() {
         return idProduit;
@@ -98,5 +101,13 @@ public class Produit implements Serializable {
 
     public void setCategorie(Categorie categorie) {
         this.categorie = categorie;
+    }
+
+    public AppUser getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 }

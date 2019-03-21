@@ -33,6 +33,7 @@ public class SecurityConfig extends  WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("http://localhost:4200/login/**", "/register/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/categories/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/produits/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/appUsers/**").permitAll();
          http.authorizeRequests().antMatchers("/categories/**").hasAuthority("ROLE_ADMIN");
          http.authorizeRequests().antMatchers("/adminCat/**").hasAuthority("ROLE_ADMIN");
          http.authorizeRequests().antMatchers("/adminProd/**").hasAuthority("ROLE_USER");

@@ -4,9 +4,11 @@ package org.sid.fidecoin.web;
 import org.apache.commons.io.IOUtils;
 import org.sid.fidecoin.daos.CategorieRepository;
 import org.sid.fidecoin.daos.ProduitRepository;
+import org.sid.fidecoin.entities.AppUser;
 import org.sid.fidecoin.entities.Categorie;
 import org.sid.fidecoin.entities.Produit;
 import org.sid.fidecoin.metiers.IAdminCategorieMetier;
+import org.sid.fidecoin.security.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +27,8 @@ public class AdminProduitRestController {
     @Autowired
     private ProduitRepository produitRepository;
 
+    private CustomUserDetailsService customUserDetailsService;
+
 
 //    @Autowired
 //    private IAdminCategorieMetier metier;
@@ -36,6 +40,13 @@ public class AdminProduitRestController {
 
         String path=System.getProperty("java.io.tmpdir");
         prd.setUrlPhoto(path);
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println(prd);
+
+     //       prd.setAppUser(this.customUserDetailsService.currentUser);
+        System.out.println("-----------------------------------------------------------------------------");
+     //   System.out.println(this.customUserDetailsService.currentUser);
+
         Produit p = produitRepository.save(prd);
 //        if (!file.isEmpty()) {
 //
