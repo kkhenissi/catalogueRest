@@ -37,6 +37,8 @@ public class FideCoinApplication  {
 //			accountService.saveUser("admin", "1234", "1234");
 //			accountService.addRoleToUser("admin", "ROLE_ADMIN");
 
+			System.out.println("*******************");
+
 
 		};
 	}
