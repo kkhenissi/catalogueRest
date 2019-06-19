@@ -23,8 +23,8 @@ import java.util.List;
 public class CustomUserDetailsService implements UserDetailsService{
     public AppUser currentUser;
 
-//    @Autowired
-//    private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
     @Autowired
     private AccountService accountService;
 
@@ -44,20 +44,20 @@ public class CustomUserDetailsService implements UserDetailsService{
             ((ArrayList<GrantedAuthority>) authorities).add(new SimpleGrantedAuthority(r.getRoleName()));
         });
 
-//        boolean accountNonExpired = true;
-//        boolean credentialsNonExpired = true;
-//        boolean accountNonLocked = true;
-//
-//        UserDetails userDetails = new org.springframework.security.core.userdetails.User(
-//                userName,
-//                user.getPassword(),
-//                user.isActive(),
-//                accountNonExpired,
-//                credentialsNonExpired,
-//                accountNonLocked,
-//                getAuthorities(user.getAppRoles()));
-//        System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuussssssssssssssssssseeeeeeeeerr");
-//        System.out.println(userDetails);
+        boolean accountNonExpired = true;
+        boolean credentialsNonExpired = true;
+        boolean accountNonLocked = true;
+
+        UserDetails userDetails = new org.springframework.security.core.userdetails.User(
+                userName,
+                appUser.getPassword(),
+                appUser.isActive(),
+                accountNonExpired,
+                credentialsNonExpired,
+                accountNonLocked,
+                getAuthorities(appUser.getAppRoles()));
+        System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuussssssssssssssssssseeeeeeeeerr");
+        System.out.println(userDetails);
 
         return new User(appUser.getUserName(), appUser.getPassword(), authorities);
     }

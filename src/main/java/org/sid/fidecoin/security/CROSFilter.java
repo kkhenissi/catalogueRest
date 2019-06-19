@@ -17,45 +17,45 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class CROSFilter  {
-//  implements Filter
-//    @Override
-//    public void init(FilterConfig fc) throws ServletException {
-//    }
-//
-//    @Override
-//    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
-//            throws IOException, ServletException {
-//        HttpServletResponse response = (HttpServletResponse) resp;
-//        HttpServletRequest request = (HttpServletRequest) req;
-//        response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
-//        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
-//        response.setHeader("Access-Control-Max-Age", "3600");
-//        response.setHeader("Access-Control-Allow-Credentials", "true");
-//        response.setHeader("Access-Control-Allow-Headers",
-//                "x-requested-with, authorization, Content-Type, Authorization, credential, X-XSRF-TOKEN");
-//
-//        System.out.println("************999999999999999999999999999**************");
-//        System.out.println(req);
-//        System.out.println("************777777777777777777777777777**************");
-//        System.out.println(resp);
-//        System.out.println("************88888888888888888888888888888888**************");
-//        System.out.println(request.getMethod());
-//
-//        if ("GET".equalsIgnoreCase(request.getMethod())) {
-//            System.out.println("YYYYYYYYYYYYYYYYYYYYEEEEEEEEEEEEEESSSSSSSSSSSS");
-//            response.setStatus(HttpServletResponse.SC_OK);
-//            System.out.println(response.getHeader("Access-Control-Allow-Credentials"));
-//        } else {
-//            System.out.println("**************************");
-//            ((HttpServletRequest) req).getUserPrincipal();
-//           // ((HttpServletResponse) resp).getHeader();
-//             chain.doFilter(req, resp);
-//        }
-//
-//    }
-//
-//    @Override
-//    public void destroy() {
- //  }
+public class CROSFilter implements Filter{
+
+    @Override
+    public void init(FilterConfig fc) throws ServletException {
+    }
+
+    @Override
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
+            throws IOException, ServletException {
+        HttpServletResponse response = (HttpServletResponse) resp;
+        HttpServletRequest request = (HttpServletRequest) req;
+        response.setHeader("Access-Control-Allow-Origin", "http://localhost:4400");
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
+        response.setHeader("Access-Control-Max-Age", "3600");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Headers",
+                "x-requested-with, authorization, Content-Type, Authorization, credential, X-XSRF-TOKEN");
+
+        System.out.println("************999999999999999999999999999**************");
+        System.out.println(req);
+        System.out.println("************777777777777777777777777777**************");
+        System.out.println(resp);
+        System.out.println("************88888888888888888888888888888888**************");
+        System.out.println(request.getMethod());
+
+        if ("GET".equalsIgnoreCase(request.getMethod())) {
+            System.out.println("YYYYYYYYYYYYYYYYYYYYEEEEEEEEEEEEEESSSSSSSSSSSS");
+            response.setStatus(HttpServletResponse.SC_OK);
+            System.out.println(response.getHeader("Access-Control-Allow-Credentials"));
+        } else {
+            System.out.println("**************************");
+            ((HttpServletRequest) req).getUserPrincipal();
+         //   ((HttpServletResponse) resp).getHeader();
+             chain.doFilter(req, resp);
+        }
+
+    }
+
+    @Override
+    public void destroy() {
+   }
 }

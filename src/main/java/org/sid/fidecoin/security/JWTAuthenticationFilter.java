@@ -37,8 +37,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
 
-//         String userName = request.getParameter("userName");
-//         String password = request.getParameter("password");  // if data is sent in wwwurlencoded
+         String userName = request.getParameter("userName");
+         String password = request.getParameter("password");  // if data is sent in wwwurlencoded
 
        try {
          AppUser appUser = new ObjectMapper().readValue(request.getInputStream(), AppUser.class);
